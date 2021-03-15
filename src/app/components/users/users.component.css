@@ -7,8 +7,42 @@
   overflow: auto;
 }
 .usersList{
-  overflow-y: auto;
+  overflow:visible;
+  width: 100%;
 }
 button{
   margin-top: 1rem;
 }
+mat-toolbar{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+  z-index: 99;
+}
+.userLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.userInfo{
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.btnContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.deleteBtn{
+  margin: 0rem 0rem .5rem 0rem;
+}
+.deleteBtn:hover{
+  background-color: #f44336;;
+  color: #fff;
+  margin-bottom: .5rem;
+}
+

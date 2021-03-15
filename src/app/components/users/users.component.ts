@@ -8,10 +8,17 @@ import { SignUpService } from "../../services/sign-up.service";
 })
 export class UsersComponent implements OnInit {
   users=[]
-  constructor(private _userService:SignUpService) { }
+
+  constructor(private usersService:SignUpService) { }
 
   ngOnInit() {
-    this.users=this._userService._users
+    this.usersService.getUsers().subscribe(users => {
+      this.users = users;
+    });
   }
 
+  onDeleteAUser(id){
+    this.users = this.users.filter(user=>user.id !== id)
+    this.usersService.deleteAUser(id).subscribe()
+  }
 }

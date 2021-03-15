@@ -6,10 +6,20 @@ color="primary">
 <div class="usersContainer" >
   <div  class="usersList">
     <mat-list *ngIf="users.length===0">
-      <p >There is no registered users yet</p>
+      <p >Users are loading or there are no registered users yet</p>
     </mat-list>
-    <mat-list *ngFor="let user of users">
-      <p >{{user.firstName}} {{user.lastName}}, {{user.gender}}, {{user.age}} years old, {{user.email}}, password: {{user.password}}</p>
+
+    <mat-list  *ngFor="let user of users">
+      <div class="userLine">
+        <p class="userInfo">{{user.firstName}} {{user.lastName}}, {{user.gender}}, {{user.age}} years old, {{user.email}}, password: {{user.password}}</p> 
+       
+          <button class="deleteBtn" (click)="onDeleteAUser(user.id)" mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        
+        
+      </div>
+      
       <mat-divider></mat-divider>
     </mat-list>
   </div>

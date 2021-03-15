@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "firstName": "john",
+      "lastName": "smith",
+      "gender": "male",
+      "age": 35,
+      "email": "gmail@gmail.com",
+      "password": "qwerty",
+      "id": 1
+    },
+    {
+      "firstName": "Tony",
+      "lastName": "Robinson",
+      "gender": "male",
+      "age": 34,
+      "email": "couch@gmail.com",
+      "password": "qwerty",
+      "id": "362d066d-d1a0-474d-a99c-d7a5e67ec86f"
+    },
+    {
+      "id": "edd961a1-6c8b-4fc0-a99e-a41d40c6b404",
+      "firstName": "Tony",
+      "lastName": "Montana",
+      "gender": "Male",
+      "age": "10",
+      "email": "couch@gmail.com",
+      "password": "q"
+    }
+  ]
+}

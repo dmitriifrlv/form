@@ -10,7 +10,25 @@ main{
 mat-card{
   width: 50vw;
   height: fit-content;
+  max-height: 80vh;
   padding: 0;
+  overflow: auto;
+}
+
+mat-card::-webkit-scrollbar{
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+mat-card::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 0px 4px 4px 4px;
+  background-color: #F5F5F5;
+}
+mat-card::-webkit-scrollbar-thumb{
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #3f51b5
 }
 
 @media (max-width: 768px) { 

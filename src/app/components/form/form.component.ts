@@ -43,7 +43,7 @@ export class FormComponent {
   }, {validators:passwordValidator})
 
 
- constructor(private router: Router, private _userService:SignUpService) { }
+ constructor(private router: Router, private addAUser:SignUpService) { }
  
  onClickEvent() {
   const user = {
@@ -68,10 +68,14 @@ export class FormComponent {
      email:this.signUpForm.value.email,
      password:this.signUpForm.value.password,
    }
+   const myObserver = {
+    next: () => console.log('Adding a new user...'),
+    error: err => console.error('Observer got an error: ' + err),
+    complete: () => this.router.navigate(['/users']),
+  };
    if(this.signUpForm.valid){
-     this.router.navigate(['/users'])
+     this.addAUser.addANewUser(user).subscribe(myObserver)
    }
-  this._userService.addANewUser(user)
  }
 
 }
