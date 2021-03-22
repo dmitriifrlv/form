@@ -16,6 +16,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { UsersComponent } from './components/users/users.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { MatListModule } from '@angular/material/list';
     UsersComponent
   ],
   imports: [
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
