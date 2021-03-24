@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import {Router} from "@angular/router";
 import { SignUpService } from "../../services/sign-up.service";
 import { v4 as uuidv4 } from 'uuid';
+import { Subscription } from 'rxjs';
 
 export const passwordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const password = control.get('password');
@@ -16,8 +17,8 @@ export const passwordValidator: ValidatorFn = (control: AbstractControl): Valida
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
-
+export class FormComponent implements OnDestroy{
+  addedANewUser:Subscription;
   signUpForm = new FormGroup({
     firstName: new FormControl('', [
       Validators.required
@@ -42,7 +43,9 @@ export class FormComponent {
     ])
   }, {validators:passwordValidator})
 
-
+  ngOnDestroy(){ 
+    this.addedANewUser.unsubscribe()
+  }
  constructor(private router: Router, private addAUser:SignUpService) { }
  
  onClickEvent() {
@@ -74,7 +77,7 @@ export class FormComponent {
     complete: () => this.router.navigate(['/users']),
   };
    if(this.signUpForm.valid){
-     this.addAUser.addANewUser(user).subscribe(myObserver)
+     this.addedANewUser=this.addAUser.addANewUser(user).subscribe(myObserver)
    }
  }
 
